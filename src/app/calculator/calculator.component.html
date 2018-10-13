@@ -1,0 +1,32 @@
+<table class="calculator calculator--table">
+    <thead>
+    <tr>
+        <th colspan="4" class="calculator__tooltip">Entrer 2 nombres et choisissez votre opérateur</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <input type="number" [(ngModel)]="leftValue" name="leftValue"/>
+        </td>
+        <td>
+            <select [(ngModel)]="operand" name="operand" class="calculator__operand">
+                <option></option>
+                <option value="addition">+</option>
+            </select>
+        </td>
+        <td>
+            <input type="number" [(ngModel)]="rightValue" name="rightValue"/>
+        </td>
+        <td>
+            <button (click)="compute()">Calculer</button>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>Résultat:</th>
+        <th colspan="3" class="calculator__result" [class.state--invalid]="!result">{{result ? result : 'N/A'}}</th>
+    </tr>
+    </tfoot>
+</table>

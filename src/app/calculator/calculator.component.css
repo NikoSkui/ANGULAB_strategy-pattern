@@ -1,0 +1,27 @@
+.calculator {
+    border: 1px solid #777777;
+}
+
+.calculator--table {
+    border-collapse: collapse;
+}
+
+.calculator--table thead {
+    border-bottom: 1px solid #777777;
+    background: #CCCCCC;
+}
+
+.calculator--table tfoot {
+    border-top: 1px solid #777777;
+    background: #CCCCCC;
+}
+
+.calculator--table td {
+    padding: 8px;
+    vertical-align: center;
+    text-align: center;
+}
+
+.state--invalid {
+    color: red;
+}
