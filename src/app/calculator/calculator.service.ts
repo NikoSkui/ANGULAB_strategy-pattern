@@ -1,24 +1,23 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Inject } from "@angular/core";
 import { AdditionOperandStrategyService } from "./addition-operand-strategy.service";
 import { SubstractionOperandStrategyService } from "./substraction-operand-strategy.service";
 import { MultiplicationOperandStrategyService } from "./multiplication-operand-strategy.service";
+import { OperandStrategy } from "./operand-strategy";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+  useFactory: (...operands: OperandStrategy[]): CalculatorService => new CalculatorService(operands),
+  deps: [AdditionOperandStrategyService, SubstractionOperandStrategyService, MultiplicationOperandStrategyService]
+})
 export class CalculatorService {
 
-    constructor(
-      private additionStrategy: AdditionOperandStrategyService,
-      private substractionStrategy: SubstractionOperandStrategyService,
-      private multiplicationStrategy: MultiplicationOperandStrategyService
-    ) {
-    }
+    constructor(@Inject(OperandStrategy) private strategies: OperandStrategy[]) {}
 
     public compute(leftValue: number, rightValue: number, operand: string): number|null {
 
-        // if (operand === 'addition') return leftValue + rightValue;
-        if (this.additionStrategy.support(operand)) return this.additionStrategy.compute(leftValue, rightValue);
-        if (this.substractionStrategy.support(operand)) return this.substractionStrategy.compute(leftValue, rightValue);
-        if (this.multiplicationStrategy.support(operand)) return this.multiplicationStrategy.compute(leftValue, rightValue);
+        const strategy = this.strategies.find(strategy => strategy.support(operand));
+
+        if (strategy) return strategy.compute(leftValue, rightValue);
 
         return null;
     }
