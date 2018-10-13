@@ -16,5 +16,4 @@ export class SubstractionOperandStrategyService extends OperandStrategy {
     return leftValue - rightValue;
   }
 
-
 }
