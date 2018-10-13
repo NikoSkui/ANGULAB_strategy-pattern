@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { CalculatorService } from './calculator/calculator.service';
+import { AdditionOperandStrategyService } from './calculator/addition-operand-strategy.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CalculatorService } from './calculator/calculator.service';
     FormsModule
   ],
   providers: [
-    CalculatorService
+    CalculatorService,
+    AdditionOperandStrategyService
   ],
   bootstrap: [AppComponent]
 })
