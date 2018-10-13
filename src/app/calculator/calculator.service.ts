@@ -7,9 +7,8 @@ export class CalculatorService {
     }
 
     public compute(leftValue: number, rightValue: number, operand: string): number|null {
-        if (operand === 'addition') {
-            return leftValue + rightValue;
-        }
+
+        if (operand === 'addition') return leftValue + rightValue;
 
         return null;
     }
