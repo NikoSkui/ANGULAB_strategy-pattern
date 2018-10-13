@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { OperandStrategy } from './operand-strategy';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AdditionOperandStrategyService extends OperandStrategy {
 
   private static SUPPORTED_OPERAND = ['+', 'addition'];

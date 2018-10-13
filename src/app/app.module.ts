@@ -18,6 +18,7 @@ import { AdditionOperandStrategyService } from './calculator/addition-operand-st
   ],
   providers: [
     CalculatorService,
+    // Deux manière d'instancier le service (celle-ci ou directement dans l'injecteur cf:SubstractionOperandStrategyService)
     AdditionOperandStrategyService
   ],
   bootstrap: [AppComponent]
