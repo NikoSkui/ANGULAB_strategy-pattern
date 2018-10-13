@@ -6,12 +6,14 @@ import { OperandStrategy } from './operand-strategy';
 })
 export class AdditionOperandStrategyService extends OperandStrategy {
 
+  private static SUPPORTED_OPERAND = ['+', 'addition'];
+
   support(operand: string): boolean {
-    throw new Error("Method not implemented.");
+    return AdditionOperandStrategyService.SUPPORTED_OPERAND.indexOf(operand) !== -1;
   }
 
   compute(leftValue: number, rightValue: number): number {
-    throw new Error("Method not implemented.");
+    return leftValue + rightValue;
   }
 
 }
